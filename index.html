@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Apusign | Firma digital, biometría y OTP para empresas</title>
+  <meta name="description" content="Firma contratos, boletas, constancias y otros documentos con certificado digital, biometría y OTP. Crea flujos de firma con múltiples participantes desde cualquier lugar." />
+  <meta name="keywords" content="firma digital, firma electrónica, certificado digital, biometría, OTP, firma de contratos, firma de documentos, flujos de firma, Apusign, ACJ Soluciones, Perú" />
+  <meta name="author" content="ACJ Soluciones" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Apusign | Firma documentos de forma fácil, rápida y segura" />
+  <meta property="og:description" content="Crea flujos de firma con certificado digital, biometría y OTP. Firma con todas las personas que necesites, estén donde estén." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:image" content="https://www.acj.pe/assets/apusign-social.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apusign | Firma digital para empresas" />
+  <meta name="twitter:description" content="Agiliza la firma de documentos con certificado digital, biometría y OTP." />
+
+  <link rel="canonical" href="https://www.acj.pe/apusign" />
+
+  <style>
+    :root {
+      --primary: #1f2a73;
+      --primary-dark: #121947;
+      --accent: #d51a73;
+      --accent-dark: #a80e57;
+      --soft: #f4f6ff;
+      --soft-accent: #fff0f7;
+      --text: #182033;
+      --muted: #65708a;
+      --white: #ffffff;
+      --border: #e5e8f2;
+      --success: #138a67;
+      --shadow: 0 18px 50px rgba(21, 30, 80, 0.12);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--soft-accent);
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 46px;
+    }
+
+    .section-heading.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 22px;
+      font-size: clamp(2.45rem, 5.4vw, 4.85rem);
+    }
+
+    h2 {
+      margin-top: 16px;
+      font-size: clamp(2rem, 3.8vw, 3.35rem);
+    }
+
+    h3 {
+      font-size: 1.22rem;
+    }
+
+    .lead {
+      margin-top: 23px;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 1.8vw, 1.23rem);
+      max-width: 700px;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--accent), #ef3b92);
+      box-shadow: 0 12px 30px rgba(213, 26, 115, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .btn-white {
+      color: var(--primary-dark);
+      background: var(--white);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229, 232, 242, 0.85);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    .brand-mark {
+      width: 39px;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: #3d4861;
+      font-size: 0.93rem;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 84px 0 78px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(213, 26, 115, 0.12), transparent 30%),
+        radial-gradient(circle at 95% 15%, rgba(31, 42, 115, 0.16), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8ff 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -220px;
+      height: 390px;
+      border-radius: 50%;
+      background: rgba(31, 42, 115, 0.04);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 28px;
+      color: #3e4962;
+      font-weight: 700;
+      font-size: 0.93rem;
+    }
+
+    .hero-points span::before {
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin-right: 8px;
+      border-radius: 50%;
+      color: var(--success);
+      background: #e9f8f3;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 535px;
+    }
+
+    .visual-card {
+      position: absolute;
+      inset: 25px 0 auto 38px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow);
+    }
+
+    .floating-badge {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: 0 14px 35px rgba(30, 40, 90, 0.16);
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .floating-badge.one {
+      top: 0;
+      right: 6px;
+    }
+
+    .floating-badge.two {
+      left: 0;
+      bottom: 54px;
+    }
+
+    .floating-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--soft-accent);
+      color: var(--accent);
+    }
+
+    .trust-bar {
+      position: relative;
+      z-index: 2;
+      margin-top: 42px;
+      padding: 19px 24px;
+      border-radius: 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 34px rgba(24, 32, 51, 0.07);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .trust-item {
+      padding: 3px 18px;
+      border-right: 1px solid var(--border);
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--primary-dark);
+      font-size: 1.02rem;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .problem-grid,
+    .benefit-grid,
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      height: 100%;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(20, 28, 70, 0.05);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--soft-accent);
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .card p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .question-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .question-card::before {
+      content: "?";
+      position: absolute;
+      top: -26px;
+      right: 13px;
+      font-size: 7rem;
+      font-weight: 900;
+      color: rgba(31, 42, 115, 0.045);
+    }
+
+    .question {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .answer {
+      margin-top: 13px;
+      color: var(--muted);
+    }
+
+    .answer strong {
+      color: var(--text);
+    }
+
+    .process-wrap {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 17px;
+      padding: 21px;
+      border-radius: 17px;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      font-weight: 900;
+    }
+
+    .process-step p {
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .value-box {
+      padding: 40px;
+      border-radius: 28px;
+      color: var(--white);
+      background:
+        linear-gradient(145deg, rgba(213, 26, 115, 0.95), rgba(31, 42, 115, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .value-box h2 {
+      margin-top: 0;
+    }
+
+    .value-box p {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.84);
+      font-size: 1.08rem;
+    }
+
+    .value-list {
+      margin-top: 27px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .value-list li {
+      list-style: none;
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .value-list li::before {
+      content: "✓";
+      flex: 0 0 auto;
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--primary-dark);
+      background: var(--white);
+      font-weight: 900;
+    }
+
+    .use-cases {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--white);
+      color: #46516a;
+      font-weight: 750;
+      font-size: 0.9rem;
+    }
+
+    .sector-card {
+      text-align: center;
+      padding: 24px 17px;
+    }
+
+    .sector-card .card-icon {
+      margin-inline: auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .why-main {
+      min-height: 100%;
+      padding: 38px;
+      border-radius: 28px;
+      background: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .why-main p {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .why-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .faq {
+      max-width: 860px;
+      margin-inline: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 21px 24px;
+      font-weight: 850;
+      color: var(--primary-dark);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      padding: 0 24px 23px;
+      color: var(--muted);
+    }
+
+    .cta {
+      padding: 0 0 92px;
+      background: var(--soft);
+    }
+
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 38px;
+      align-items: center;
+      padding: 52px;
+      border-radius: 30px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 90% 0%, rgba(255,255,255,0.17), transparent 30%),
+        linear-gradient(135deg, var(--primary-dark), var(--primary));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      margin-top: 0;
+    }
+
+    .cta-box p {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .lead-form {
+      padding: 24px;
+      border-radius: 20px;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #434d64;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 13px;
+      border-radius: 10px;
+      border: 1px solid #dfe3ed;
+      outline: none;
+      background: #fbfcff;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(213, 26, 115, 0.1);
+    }
+
+    .form-note {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 34px 0;
+      color: #dce2f1;
+      background: #0e1436;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-copy {
+      font-size: 0.86rem;
+      color: #9da8c4;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .process-wrap,
+      .why-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .problem-grid,
+      .benefit-grid,
+      .sector-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .trust-item:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 16px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-visual {
+        min-height: 385px;
+      }
+
+      .visual-card {
+        inset: 25px 0 auto 0;
+        padding: 16px;
+      }
+
+      .floating-badge {
+        transform: scale(0.86);
+      }
+
+      .floating-badge.one {
+        right: -16px;
+      }
+
+      .floating-badge.two {
+        left: -18px;
+        bottom: 5px;
+      }
+
+      .problem-grid,
+      .benefit-grid,
+      .sector-grid,
+      .trust-bar,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item,
+      .trust-item:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 15px;
+      }
+
+      .trust-item:last-child {
+        border-bottom: 0;
+      }
+
+      .cta-box {
+        padding: 30px 20px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav .btn {
+        padding-inline: 14px;
+        min-height: 44px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Apusign",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Plataforma para firmar documentos con certificado digital, biometría y OTP mediante flujos de trabajo.",
+    "provider": {
+      "@type": "Organization",
+      "name": "ACJ Soluciones",
+      "url": "https://www.acj.pe"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="ACJ Soluciones - Inicio">
+        <span class="brand-mark">A</span>
+        <span>
+          ACJ Soluciones
+          <small>TECNOLOGÍA CON VALOR LEGAL</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#solucion">Solución</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+
+      <a class="btn btn-primary" href="#demo">Solicitar demo</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Firma digital para empresas</span>
+            <h1>
+              Firma documentos con todas las personas que necesites,
+              <span class="highlight">estén donde estén.</span>
+            </h1>
+
+            <p class="lead">
+              Apusign te permite crear flujos de trabajo para firmar contratos,
+              boletas, constancias y otros documentos mediante certificado digital,
+              biometría y OTP, de forma fácil, rápida y segura.
+            </p>
+
+            <div class="btn-row">
+              <a class="btn btn-primary" href="#demo">Quiero una demostración</a>
+              <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+            </div>
+
+            <div class="hero-points" aria-label="Características principales">
+              <span>Múltiples firmantes</span>
+              <span>Identificación segura</span>
+              <span>100% paperless</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Ilustración del flujo de firma digital">
+            <div class="floating-badge one">
+              <span class="floating-icon">✓</span>
+              Identidad validada
+            </div>
+
+            <div class="visual-card">
+              <svg viewBox="0 0 690 520" role="img" aria-labelledby="apusignIllustrationTitle apusignIllustrationDesc">
+                <title id="apusignIllustrationTitle">Flujo digital de firma de documentos</title>
+                <desc id="apusignIllustrationDesc">Documento enviado a varios firmantes que validan su identidad y firman desde diferentes dispositivos.</desc>
+
+                <defs>
+                  <linearGradient id="screenGradient" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#1f2a73"/>
+                    <stop offset="100%" stop-color="#d51a73"/>
+                  </linearGradient>
+                  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#182033" flood-opacity="0.14"/>
+                  </filter>
+                </defs>
+
+                <rect x="85" y="35" width="520" height="390" rx="28" fill="#ffffff" filter="url(#shadow)"/>
+                <rect x="85" y="35" width="520" height="66" rx="28" fill="url(#screenGradient)"/>
+                <circle cx="125" cy="68" r="8" fill="#ffffff" opacity=".75"/>
+                <circle cx="151" cy="68" r="8" fill="#ffffff" opacity=".45"/>
+                <circle cx="177" cy="68" r="8" fill="#ffffff" opacity=".28"/>
+
+                <rect x="119" y="130" width="220" height="250" rx="18" fill="#f4f6ff"/>
+                <rect x="148" y="160" width="160" height="15" rx="7" fill="#1f2a73" opacity=".76"/>
+                <rect x="148" y="193" width="130" height="9" rx="4" fill="#aeb6ca"/>
+                <rect x="148" y="215" width="160" height="9" rx="4" fill="#c6ccda"/>
+                <rect x="148" y="237" width="140" height="9" rx="4" fill="#c6ccda"/>
+                <rect x="148" y="282" width="144" height="58" rx="11" fill="#ffffff" stroke="#d51a73" stroke-width="3"/>
+                <path d="M166 317 C195 280 222 335 270 298" stroke="#d51a73" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <circle cx="290" cy="316" r="10" fill="#d51a73" opacity=".15"/>
+
+                <rect x="373" y="133" width="188" height="62" rx="16" fill="#fff0f7"/>
+                <circle cx="407" cy="164" r="18" fill="#d51a73"/>
+                <path d="M400 164 l5 5 10 -12" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="438" y="151" width="92" height="8" rx="4" fill="#8f3d6b"/>
+                <rect x="438" y="169" width="70" height="7" rx="4" fill="#c28da9"/>
+
+                <rect x="373" y="211" width="188" height="62" rx="16" fill="#f4f6ff"/>
+                <circle cx="407" cy="242" r="18" fill="#1f2a73"/>
+                <path d="M407 230 v24 M395 242 h24" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                <rect x="438" y="229" width="92" height="8" rx="4" fill="#4b568a"/>
+                <rect x="438" y="247" width="77" height="7" rx="4" fill="#aeb6ca"/>
+
+                <rect x="373" y="289" width="188" height="62" rx="16" fill="#f4f6ff"/>
+                <circle cx="407" cy="320" r="18" fill="#1f2a73"/>
+                <path d="M398 321 l6 6 12 -15" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="438" y="307" width="92" height="8" rx="4" fill="#4b568a"/>
+                <rect x="438" y="325" width="82" height="7" rx="4" fill="#aeb6ca"/>
+
+                <rect x="260" y="405" width="170" height="74" rx="22" fill="url(#screenGradient)" filter="url(#shadow)"/>
+                <path d="M314 443 l17 17 42 -48" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="floating-badge two">
+              <span class="floating-icon">✉</span>
+              Flujo enviado por e-mail
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-bar" aria-label="Resumen de confianza">
+          <div class="trust-item">
+            <strong>ACJ Soluciones</strong>
+            <span>Empresa acreditada ante INDECOPI</span>
+          </div>
+          <div class="trust-item">
+            <strong>Firma flexible</strong>
+            <span>Certificado digital, biometría y OTP</span>
+          </div>
+          <div class="trust-item">
+            <strong>Sin límites operativos</strong>
+            <span>Agrega los firmantes que necesites</span>
+          </div>
+          <div class="trust-item">
+            <strong>Desde cualquier lugar</strong>
+            <span>Acceso mediante enlace seguro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solucion">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Preguntas reales. Soluciones concretas.</span>
+          <h2>¿Tu proceso de firma todavía depende del papel y la coordinación manual?</h2>
+          <p class="lead" style="margin-inline:auto">
+            Apusign transforma la firma de documentos en un flujo digital sencillo,
+            controlado y listo para operar con personas dentro o fuera de tu empresa.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="card question-card">
+            <div class="card-icon">01</div>
+            <p class="question">¿Pierdes tiempo enviando documentos y haciendo seguimiento?</p>
+            <p class="answer">
+              <strong>Centraliza el proceso.</strong> Crea un flujo, agrega a los firmantes
+              y permite que cada persona reciba su invitación por correo electrónico.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="card-icon">02</div>
+            <p class="question">¿Necesitas saber quién firmó realmente?</p>
+            <p class="answer">
+              <strong>Refuerza la identificación.</strong> Apusign puede utilizar certificado
+              digital, biometría y OTP según el nivel de validación que requiera tu proceso.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="card-icon">03</div>
+            <p class="question">¿Tus documentos deben ser firmados por varias personas?</p>
+            <p class="answer">
+              <strong>Agrega tantos participantes como necesites.</strong> Organiza el orden
+              de firma y mantén el avance del proceso en un solo lugar.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="card-icon">04</div>
+            <p class="question">¿Tus clientes o colaboradores están en distintas ciudades?</p>
+            <p class="answer">
+              <strong>Firma desde cualquier lugar.</strong> Cada participante accede al
+              documento mediante un enlace enviado a su correo electrónico.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="card-icon">05</div>
+            <p class="question">¿Quieres reducir impresiones, mensajería y almacenamiento?</p>
+            <p class="answer">
+              <strong>Digitaliza el ciclo completo.</strong> Descarga el documento firmado,
+              almacénalo electrónicamente y avanza hacia una operación paperless.
+            </p>
+          </article>
+
+          <article class="card question-card">
+            <div class="card-icon">06</div>
+            <p class="question">¿Necesitas una experiencia sencilla para cualquier usuario?</p>
+            <p class="answer">
+              <strong>Reduce la fricción.</strong> El firmante visualiza el documento,
+              se identifica y completa la firma siguiendo instrucciones claras.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="como-funciona">
+      <div class="container process-wrap">
+        <div>
+          <span class="eyebrow">Proceso simple</span>
+          <h2>¿Cómo se firma un documento con Apusign?</h2>
+          <p class="lead">
+            En pocos pasos puedes iniciar, completar y conservar un proceso de firma
+            con múltiples participantes.
+          </p>
+
+          <div class="use-cases">
+            <span class="chip">Contratos</span>
+            <span class="chip">Boletas</span>
+            <span class="chip">Constancias</span>
+            <span class="chip">Concursos públicos</span>
+            <span class="chip">Acuerdos</span>
+            <span class="chip">Documentos internos</span>
+          </div>
+        </div>
+
+        <div class="process-list">
+          <article class="process-step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Sube el documento</h3>
+              <p>Carga el archivo que necesitas enviar para firma.</p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Agrega a los firmantes</h3>
+              <p>Registra los contactos y define cómo participará cada persona en el flujo.</p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Envía la invitación</h3>
+              <p>Cada firmante recibe en su correo electrónico un enlace para acceder al documento.</p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Valida la identidad y firma</h3>
+              <p>La persona revisa el documento, se identifica y firma mediante el mecanismo definido.</p>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <div class="step-number">5</div>
+            <div>
+              <h3>Descarga y conserva</h3>
+              <p>Obtén el documento firmado y guárdalo en tu repositorio o sistema de gestión.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Beneficios para tu operación</span>
+          <h2>Menos tareas manuales. Más velocidad para cerrar procesos.</h2>
+          <p class="lead">
+            Apusign ayuda a las empresas a reducir tiempos, mejorar la experiencia
+            de los firmantes y mantener sus documentos organizados.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="card">
+            <div class="card-icon">✓</div>
+            <h3>Autenticación del firmante</h3>
+            <p>Valida la identidad de la persona al momento de realizar la firma.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">∞</div>
+            <h3>Múltiples participantes</h3>
+            <p>Incluye a todas las personas que deban revisar o firmar el documento.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Procesos más rápidos</h3>
+            <p>Reduce coordinaciones, desplazamientos y esperas asociadas a la firma física.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">☁</div>
+            <h3>Acceso remoto</h3>
+            <p>Permite que cada firmante participe desde el lugar donde se encuentre.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">▣</div>
+            <h3>Operación paperless</h3>
+            <p>Disminuye impresiones, uso de papel, mensajería y almacenamiento físico.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↓</div>
+            <h3>Documento disponible</h3>
+            <p>Descarga el archivo firmado y consérvalo en tus sistemas o repositorios.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container process-wrap">
+        <div class="value-box">
+          <h2>Convierte la firma en una ventaja competitiva.</h2>
+          <p>
+            No se trata solo de dejar de imprimir. Se trata de cerrar contratos,
+            aprobar documentos y atender a clientes con mayor rapidez, trazabilidad
+            y una experiencia digital alineada con la forma en que hoy trabajan las empresas.
+          </p>
+
+          <ul class="value-list">
+            <li>Reduce el tiempo entre el envío y la firma.</li>
+            <li>Facilita la participación de clientes, proveedores y colaboradores.</li>
+            <li>Estandariza los flujos de aprobación y firma.</li>
+            <li>Mejora la continuidad operativa sin depender de la ubicación física.</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="eyebrow">Propuesta de valor</span>
+          <h2>¿Por qué seguir esperando días para firmar un documento?</h2>
+          <p class="lead">
+            Con Apusign, tu empresa puede pasar de un proceso fragmentado y manual
+            a una experiencia digital en la que cada participante recibe, revisa,
+            se identifica y firma desde un flujo organizado.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#demo">Digitalizar mi proceso de firma</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sectores">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Una plataforma, múltiples sectores</span>
+          <h2>¿Dónde puede utilizarse Apusign?</h2>
+          <p class="lead" style="margin-inline:auto">
+            En cualquier organización que necesite formalizar documentos con rapidez
+            y coordinar la participación de una o varias personas.
+          </p>
+        </div>
+
+        <div class="sector-grid">
+          <article class="card sector-card">
+            <div class="card-icon">B</div>
+            <h3>Banca y finanzas</h3>
+            <p>Contratos, solicitudes, autorizaciones y documentación de clientes.</p>
+          </article>
+
+          <article class="card sector-card">
+            <div class="card-icon">T</div>
+            <h3>Telecomunicaciones</h3>
+            <p>Altas de servicio, acuerdos comerciales y documentos operativos.</p>
+          </article>
+
+          <article class="card sector-card">
+            <div class="card-icon">+</div>
+            <h3>Salud</h3>
+            <p>Consentimientos, constancias y documentación administrativa.</p>
+          </article>
+
+          <article class="card sector-card">
+            <div class="card-icon">A</div>
+            <h3>Agroexportación</h3>
+            <p>Contratos, órdenes, documentación laboral y coordinación con terceros.</p>
+          </article>
+
+          <article class="card sector-card">
+            <div class="card-icon">⌂</div>
+            <h3>Inmobiliaria</h3>
+            <p>Reservas, contratos, acuerdos y documentación con clientes y proveedores.</p>
+          </article>
+
+          <article class="card sector-card">
+            <div class="card-icon">E</div>
+            <h3>Educación</h3>
+            <p>Constancias, matrículas, autorizaciones y documentos institucionales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Confianza y experiencia</span>
+          <h2>¿Por qué confiar en ACJ Soluciones?</h2>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-main">
+            <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff">Respaldo empresarial</span>
+            <h2>Una solución acompañada por especialistas en tecnología y firma digital.</h2>
+            <p>
+              ACJ Soluciones es una empresa acreditada ante INDECOPI y orientada a
+              implementar soluciones digitales que simplifican procesos críticos
+              para empresas de distintos sectores.
+            </p>
+            <p>
+              Nuestro enfoque combina tecnología, experiencia de usuario y acompañamiento
+              para que la adopción de la firma digital sea clara, ordenada y útil para tu negocio.
+            </p>
+          </article>
+
+          <div class="why-side">
+            <article class="card">
+              <div class="card-icon">01</div>
+              <h3>Conocimiento especializado</h3>
+              <p>Entendemos los procesos de firma, identificación y gestión documental empresarial.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">02</div>
+              <h3>Acompañamiento cercano</h3>
+              <p>Te ayudamos a evaluar el flujo más adecuado para tus documentos y usuarios.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">03</div>
+              <h3>Solución adaptable</h3>
+              <p>Apusign puede aplicarse a distintos tipos de documentos, áreas y sectores.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Lo que necesitas saber antes de empezar</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>¿El firmante necesita estar en la misma ciudad?</summary>
+            <p>
+              No. El firmante recibe un enlace por correo electrónico y puede revisar,
+              identificarse y firmar desde el lugar donde se encuentre.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Puedo agregar a varias personas en un mismo documento?</summary>
+            <p>
+              Sí. Puedes incorporar a todos los participantes que necesites y organizar
+              el proceso mediante un flujo de trabajo.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Qué métodos de firma e identificación utiliza Apusign?</summary>
+            <p>
+              La plataforma puede operar con certificado digital, biometría y OTP,
+              de acuerdo con el flujo definido para cada proceso.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Qué tipos de documentos puedo gestionar?</summary>
+            <p>
+              Puedes utilizar Apusign para contratos, boletas, constancias, concursos
+              públicos, acuerdos, autorizaciones y otros documentos empresariales.
+            </p>
+          </details>
+
+          <details>
+            <summary>¿Puedo descargar el documento al finalizar?</summary>
+            <p>
+              Sí. Una vez completado el proceso, el documento firmado puede descargarse
+              y almacenarse en el repositorio que utilice tu organización.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="demo">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="eyebrow" style="background:rgba(255,255,255,.12);color:#fff">Solicita una demostración</span>
+            <h2>¿Listo para firmar documentos sin papel, demoras ni fronteras?</h2>
+            <p>
+              Cuéntanos qué documentos necesitas firmar y te mostraremos cómo Apusign
+              puede adaptarse al flujo de tu empresa.
+            </p>
+
+            <div class="btn-row">
+              <a class="btn btn-white" href="mailto:comercial@acj.pe">Hablar con un asesor</a>
+            </div>
+          </div>
+
+          <form class="lead-form" action="#" method="post">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+              </div>
+
+              <div class="field">
+                <label for="empresa">Empresa</label>
+                <input id="empresa" name="empresa" type="text" placeholder="Nombre de empresa" required />
+              </div>
+
+              <div class="field">
+                <label for="correo">Correo corporativo</label>
+                <input id="correo" name="correo" type="email" placeholder="nombre@empresa.com" required />
+              </div>
+
+              <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" placeholder="+51 999 999 999" />
+              </div>
+
+              <div class="field full">
+                <label for="necesidad">¿Qué documentos necesitas firmar?</label>
+                <textarea id="necesidad" name="necesidad" placeholder="Ejemplo: contratos con clientes y boletas de pago"></textarea>
+              </div>
+
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Solicitar demo de Apusign</button>
+              </div>
+            </div>
+
+            <p class="form-note">
+              Al enviar este formulario, aceptas ser contactado por ACJ Soluciones
+              para atender tu solicitud.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="brand" style="color:#fff">
+        <span class="brand-mark">A</span>
+        <span>
+          ACJ Soluciones
+          <small style="color:#9da8c4">APUSIGN · FIRMA DIGITAL PARA EMPRESAS</small>
+        </span>
+      </div>
+
+      <p class="footer-copy">
+        © 2026 ACJ Soluciones. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
